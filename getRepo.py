@@ -86,7 +86,7 @@ keys = {
   Key('close_issues_count'): github.getIssuesCount("closed"),
   Key('close_pull_requests_count'): github.getPullsCount("closed"),
   Key('commits_count'): github.getCommitsCount(),
-  Key('contributors_count'): to_complete,
+  Key('contributors_count'): github.getContributorsCount(),
   Key('good'): to_complete,
   Key('issues_count'): github.getIssuesCount(),
   Key('license'): to_complete,

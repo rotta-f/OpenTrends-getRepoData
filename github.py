@@ -117,6 +117,9 @@ class Github:
     def getCommitsCount(self):
         return self.getItemsCount('commits', state=None, direction=None)
 
+    def getContributorsCount(self):
+        return self.getItemsCount('contributors', state=None, direction=None)
+
     def getOldestPullRequest(self, state='all'):
         response, content = self.__getItems__('pulls', state=state, direction='asc')
         if len(content) > 0:

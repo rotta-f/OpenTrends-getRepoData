@@ -64,14 +64,16 @@ parser = argparse.ArgumentParser(description="Search for github data.")
 parser.add_argument('-l', help="Login of the user")
 parser.add_argument('-p', help="Password of the user")
 parser.add_argument('--repo', help="Repository to get the data")
+parser.add_argument('--verbose', "-v", action="store_true", help="Verbose mode")
 args = parser.parse_args()
 
 
 login = input("Github Login: ") if not args.l else args.l
 password = getpass.getpass() if not args.p else args.p
 repository = input("Repository: ") if not args.repo else args.repo
+verbose = False if not args.verbose else args.verbose
 
-github = gh.Github(login=login, password=password, verbose=True)
+github = gh.Github(login=login, password=password, verbose=verbose)
 github.setRepository(repository)
 
 content_main = github.getRepositoryInfo()
